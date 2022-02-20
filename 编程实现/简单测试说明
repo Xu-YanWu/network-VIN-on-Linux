@@ -1,0 +1,12 @@
+VNI_send包含发送部分程序，VNI_recv包含接收部分程序；
+
+简单测试步骤（测试环境见报告第五节“测试与结果”）：
+复制VNI_send文件夹中内容到Linux虚拟机A，复制VNI_send文件夹中内容到Linux虚拟机B；
+在虚拟机A中，起终端，sudo模式下，make命令编译，生成vnisend.elf；
+在虚拟机B中，起终端，sudo模式下，make命令编译，生成vnirecv.ko；
+在虚拟机B中继续，输入命令 insmode vnirecv.ko，加载vnirecv；
+在虚拟机A中，输入命令 ./vinsend，启动发送程序，并另起一个终端，ping虚拟机B的IP地址，观察打印；
+在虚拟机B中，输入命令 sudo cat /proc/kmsg 或命令 dmesg，观察打印。
+
+
+更多内容及程序结构组织关系，见报告第四节“软件实现”。
